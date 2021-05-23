@@ -20,13 +20,13 @@ class TaskTest < ActiveSupport::TestCase
 
   test 'should save desciption length more than 10' do
     category = Category.new
-    category.category_name = 'Sports'
+    category.category_name = 'Sportss'
     category.save
 
     task = Task.new
     task.title = 'Sports'
     task.deadline = Date.today
-    task.description = 'one two three'
+    task.description = 'one two three asdasd'
     task.category_id = category.id
     
     assert task.save, 'Task did not save'
@@ -34,7 +34,7 @@ class TaskTest < ActiveSupport::TestCase
 
   test 'should not save Task without date' do
     category = Category.new
-    category.category_name = 'Sports'
+    category.category_name = 'Sportss'
     category.save
 
     task = Task.new
