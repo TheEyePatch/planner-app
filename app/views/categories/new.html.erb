@@ -1,0 +1,16 @@
+<%= form_with scope: :category, url: categories_path, local: true do |f|%>
+
+    <%flash.each do |type, msg|%>
+        <%msg.each do |message|%>
+        <div>
+            <%= message%>
+        </div>
+        <%end%>
+    <%end%>
+
+    <div>
+        <%= f.label 'Category'%>
+        <%= f.text_field :category_name%>
+    </div>
+        <%= f.submit%>
+<%end%>
