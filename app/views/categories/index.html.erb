@@ -1,4 +1,4 @@
-<section class = 'content-container'>
+<section class = 'flex'>
     <% @categories.each do |category|%>
         <div class = 'category'>
            <h2><%= link_to category.category_name, category_path(category)%></h2>
@@ -10,6 +10,6 @@
         
     <%end%>
     <div>
-        <%= button_to 'New Category', new_category_path, method: :get%>
+        <%= button_to 'New Category', new_category_path, method: :get, class:"bg-indigo-400 p-2 rounded-xl shadow-md font-sans text-white"%>
     </div>
 </section>
