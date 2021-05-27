@@ -1,0 +1,26 @@
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    opacity: .1;
+}
+footer{
+    .circle{
+        height: 30rem;
+        width: 30rem;
+    }
+    .circle-one{
+        border-top-right-radius: 100%;
+        background-color: rgba(76, 0, 130, 0.336);
+    }
+    .circle-two{
+        width: 50rem;
+        border-top-left-radius: 100%;
+        background-color: rgba(0, 52, 130, 0.336);
+    }
+}
+
