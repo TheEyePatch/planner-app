@@ -20,9 +20,10 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should post new category' do
-    post categories_path, params:{category: {category_name: 'Sports'}}
-
-    assert_response :redirect
+    assert_difference 'Category.count', 1 do
+      post categories_path, params: {category: {category_name: 'Fitness'}}
+      assert_response :redirect
+    end
   end
 
   test 'should show selected category' do
@@ -37,15 +38,16 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update selected category' do
-    put category_path(@category), params: {category: {category_name: 'Spot'}}
+    put category_path(@category), params: {category: {category_name: 'Sports'}}
 
     assert_response :redirect
   end
 
   test 'should delete selected category' do
-    delete category_path(@category)
-    assert_response :redirect
-
+    assert_difference 'Category.count', -1 do
+      delete category_path(@category)
+      assert_response :redirect
+    end
   end
 
   
