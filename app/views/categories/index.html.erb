@@ -1,15 +1,48 @@
-<section class = 'flex'>
+<section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center'>
+    <h1 class ="p-5 bg-indigo-400 rounded-md text-4xl text-white tracking-tighter col-span-5 w-full">Categories</h1>
     <% @categories.each do |category|%>
-        <div class = 'category'>
-           <h2><%= link_to category.category_name, category_path(category)%></h2>
-            <h3><%= category.tasks.count%> Tasks</h3>
-            <%= link_to 'New Task', new_category_task_path(category)%>
-            <%= link_to 'Show Tasks', category_tasks_path(category)%>
-            <%= button_to 'Delete Category', category_path(category), method: :delete, data: {confirm: "Are you sure you want to delete #{category.category_name}?"}%>
-        </div>
-        
+        <% if !category.tasks.any?{|task| task.deadline == Date.today}%>
+            <div class = 'bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
+            <h2 class ="text-3xl text-blue-900 tracking-tighter border-b-2 border-blue-50"><%= link_to category.category_name, category_path(category)%></h2>
+                <h3 class ="text-xl text-indigo-400 my-2"><%= category.tasks.count%> Task/s</h3>
+                <%category.tasks.each do |task|%>
+                    <div class ="bg-white rounded-md p-2 shadow my-2 flex justify-between items-center">
+                        <%= task.title%>
+                        <div>
+                            <%= link_to edit_category_task_path(category ,task) do%>
+                                <%= fa_icon "pen"%>
+                            <%end%>
+                            <%= link_to category_task_path(task.category_id, task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.title}"} do %>
+                                <%= fa_icon "trash-alt"%>
+                            <%end%>
+                        </div>
+                        
+                        <% if task.deadline == Date.today%>
+                            <span class ="bg-red-400 rounded text-xs text-white ring ring-red-700 ring-offset-2 p-1">Urgent</span>
+                        <% end %>
+                            
+                    </div>
+                <%end%>
+
+                <%= button_to 'New Task', new_category_task_path(category), method: :get, class: "bg-green-400 py-2 px-4 rounded-lg text-gray-100 cursor-pointer hover:bg-white hover:text-green-400"%>
+            </div>
+        <%end%>
     <%end%>
-    <div>
-        <%= button_to 'New Category', new_category_path, method: :get, class:"bg-indigo-400 p-2 rounded-xl shadow-md font-sans text-white"%>
+
+    <div class = "text-white z-30">
+        <%= link_to new_category_path, method: :get, class:"hover:border-transparent hover:shadow-md transform transition duration-500 ease-in-out hover:scale-110 w-full 
+        flex items-center justify-center rounded-lg border-2 border-dashed border-blue-700 text-sm h-60 px-10 text-2xl" do%>
+            <%= fa_icon "plus-circle", class: "text-white text-3xl m-3"%>
+            <h3 class = "text-3xl">Category</h3>
+        <%end%>
     </div>
+</section>
+ <section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center py-5'>
+    <h1 id = "urgent" class ="p-5 bg-indigo-400 rounded-md text-4xl text-white tracking-tighter col-span-5 w-full">Urgent</h1>
+        <% @categories.each do |category|%>
+            <% if category.tasks.any?{|task| task.deadline == Date.today}%>
+                    <%= render "tasks/urgent_task", category: category %>
+            
+            <%end%>
+        <%end%>
 </section>

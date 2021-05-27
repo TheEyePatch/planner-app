@@ -1,6 +1,11 @@
 class CategoriesController < ApplicationController
     def index
         @categories = Category.all
+        @categories.each do |category|
+            category.tasks.each do |task|
+                @task = task
+            end
+        end
     end
     def new
         @category = Category.new
