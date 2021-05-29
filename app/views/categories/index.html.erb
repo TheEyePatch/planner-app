@@ -1,6 +1,6 @@
 <% if @categories.any?{|category| category.tasks.any?{|task| task.deadline == Date.today}}%>
 <section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center'>
-    <h1 id = "urgent" class ="p-5 bg-red-400 mx-5 rounded-full text-4xl text-red-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start">Urgent</h1>
+    <h1 id = "urgent" class ="p-5 bg-red-400 mx-5 rounded-full text-4xl text-red-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start shadow-md">Urgent</h1>
         <% @categories.each do |category|%>
             <% if category.tasks.any?{|task| task.deadline == Date.today}%>
                     <%= render "categories/category_tasks", category: category %>
@@ -9,7 +9,7 @@
 </section>
 <%end%>
 <section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center  py-5'>
-    <h1 class ="p-5 bg-blue-400 mx-5 rounded-full text-4xl text-blue-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start">Categories</h1>
+    <h1 class ="p-5 bg-blue-400 mx-5 rounded-full text-4xl shadow-md text-blue-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start">Categories</h1>
     <div class = "text-white z-30">
         <%= link_to new_category_path, method: :get, class:"hover:border-transparent hover:shadow-md transform transition duration-500 ease-in-out hover:scale-110 w-full 
         flex items-center justify-center rounded-lg border-2 border-dashed border-blue-700 text-sm h-60 px-10 text-2xl" do%>

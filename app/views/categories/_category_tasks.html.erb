@@ -1,4 +1,8 @@
+<%if category.tasks.count > 4%>
+<div class = 'row-span-2 bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
+<% else %>
 <div class = 'bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
+<%end%>
     <h2 class ="text-3xl text-blue-900 tracking-tighter border-b-2 border-blue-50 w-60 flex items-center">
         <div class = "w-60 truncate">
             <%= link_to category.category_name, category_tasks_path(category)%>
