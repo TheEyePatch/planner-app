@@ -1,0 +1,23 @@
+<%flash.each do |type, msg|%>
+    <%msg.each do |message|%>
+        <div>
+            <%= message%>
+        </div>
+    <%end%>
+<%end%>
+<div>
+    <%= f.label :title, 'Title', class:"text-blue-800 text-4xl tracking-wider"%><br>
+    <%= f.text_field :title, class: 'title-input'%>
+</div>
+<div>
+    <%= f.label :description,'Description', class:"text-blue-800 text-4xl tracking-wider" %><br>
+    <%= f.text_area :description , size: '70x15', class: "resize-none"%>
+</div>
+<div class ="deadline">
+    <%= f.label :deadline,'Deadline', class:"text-blue-800 text-4xl tracking-wider" %><br>
+    <%= f.date_select :deadline%>
+</div>
+                    
+<div class = 'submit-btn my-5'>
+    <%= f.submit 'Submit Task', class: "bg-green-400 py-2 px-4 rounded-lg text-gray-100 cursor-pointer hover:bg-white hover:text-green-400" %>
+</div>

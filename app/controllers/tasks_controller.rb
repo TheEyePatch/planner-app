@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
         if @task.update(task_params)
             @task.save
-            redirect_to category_task_path(@category, @task)
+            redirect_to category_tasks_path(@category, @task)
         else
             redirect_to edit_category_task_path(@category, @task), notice: @task.errors.full_messages
         end
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
     def destroy
         @task = @category.tasks.find(params[:id])
         @task.destroy
-        redirect_to category_tasks_path(@category)
+        redirect_to categories_path
     end
     private 
     def get_category

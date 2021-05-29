@@ -1,16 +1,5 @@
-<%= form_with scope: :category, url: categories_path, local: true do |f|%>
-
-    <%flash.each do |type, msg|%>
-        <%msg.each do |message|%>
-        <div>
-            <%= message%>
-        </div>
-        <%end%>
+<section class ="new-category-template">
+    <%= form_with scope: :category, model: @category, local: true, class:"bg-blue-200 p-10 w-1/4 relative flex flex-col items-center shadow-lg" do |f|%>
+        <%= render "form", f:f%>
     <%end%>
-
-    <div>
-        <%= f.label 'Category'%>
-        <%= f.text_field :category_name%>
-    </div>
-        <%= f.submit%>
-<%end%>
+</section>

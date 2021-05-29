@@ -43,7 +43,9 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should delete selected task' do
-    delete category_task_path(@category, @task)
-    assert_response :redirect
+    assert_difference '@category.tasks.count', -1 do
+      delete category_task_path(@category, @task)
+      assert_response :redirect
+  end
   end
 end

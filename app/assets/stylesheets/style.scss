@@ -1,0 +1,37 @@
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    opacity: .1;
+}
+footer{
+    .circle{
+        height: 30rem;
+        width: 30rem;
+    }
+    .circle-one{
+        border-top-right-radius: 100%;
+        background-color: rgba(76, 0, 130, 0.336); /*rgba(76, 0, 130, 0.336);*/
+        position: relative;
+    }
+    .circle-two{
+        width: 55rem;
+        border-top-left-radius: 100%;
+        background-color: rgba(0, 52, 130, 0.432);
+    }
+    .inner-circle-one{
+        height: 25rem;
+        width: 25rem;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        background-color: rgba(76, 0, 130, 0.336);
+        position: absolute;
+        left: 0;
+    }
+}

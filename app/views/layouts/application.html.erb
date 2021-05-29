@@ -5,12 +5,43 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  <!--======================== Google Font ===========================-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet"> 
+  <!--================================================================================-->
+  <!-- ===================================  Font-Awesome =========================================-->
+  <script src="https://kit.fontawesome.com/da7ccd1607.js" crossorigin="anonymous"></script>
+  <!--=============================================================================================-->
+  
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+<!--=================================== BODY =======================================================-->
+  <body class="box-border bg-gradient-to-r from-blue-100 to-blue-300 font-rubik">
+    <main>
+      <header class ="bg-gradient-to-r from-blue-100 to-blue-500 w-screen p-2 h-20 flex items-center fixed z-10 shadow">
+        <nav class="flex justify-between w-screen p-1">
+          <h1 class = "font-big-shoulders text-blue-700 text-5xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter">REmindMe!</h1>
+          <ul class ="relative right-5 flex items-center space-x-7 text-white font-rubik">
+            <li><%= link_to 'Categories', categories_path%></li>
+            <li><%= button_to 'New Category', new_category_path, method: :get, class:"bg-indigo-400 p-4 rounded-xl shadow-md text-white cursor-pointer transform transition duration-500 ease-in-out hover:scale-110 hover:text-indigo-400 hover:bg-white"%></li>
+            
+          </ul>
+        </nav>
+      </header>
+      <section class="transform translate-y-24">
+        <%= yield %>
+      </section>
+    </main>
+     <footer>
+        <div class="circle-one circle">
+          <div class = "inner-circle-one animate-pulse animate-bounce"></div>
+        </div>
+        
+        <div class="circle-two circle animate-pulse"></div>
+      </footer>
   </body>
 </html>
