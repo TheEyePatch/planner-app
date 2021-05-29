@@ -1,0 +1,32 @@
+<div class = 'bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
+    <h2 class ="text-3xl text-blue-900 tracking-tighter border-b-2 border-blue-50 w-60 flex items-center">
+        <div class = "w-60 truncate">
+            <%= link_to category.category_name, category_tasks_path(category)%>
+        </div>
+        <div class = "text-lg">
+            <%= link_to edit_category_path(category) do%>
+                <%= fa_icon "align-justify"%>
+            <%end%>
+        </div>
+    </h2>
+    <h3 class ="text-xl text-indigo-400 my-2"><%= category.tasks.count%> Task/s</h3>
+    <%category.tasks.each do |task|%>
+        <div class ="bg-white rounded-md p-2 shadow my-2 flex justify-between items-center">
+            <p class = "w-40 truncate"><%= task.title%></p>
+            <div>
+                <%= link_to edit_category_task_path(category,task) do%>
+                    <%= fa_icon "pen"%>
+                <%end%>
+                <%= link_to category_task_path(category, task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.title}"} do%>
+                    <%= fa_icon "trash-alt"%>
+                <%end%>
+            </div>
+                    
+            <% if task.deadline == Date.today%>
+                <span class ="bg-red-400 rounded text-xs text-white ring ring-red-700 ring-offset-2 p-1">Urgent</span>
+            <% end %>
+                        
+        </div>
+    <%end%>
+    <%= button_to 'New Task', new_category_task_path(category), method: :get, class: "bg-green-400 py-2 px-4 rounded-lg text-gray-100 cursor-pointer hover:bg-white hover:text-green-400 w-full"%>
+</div>
