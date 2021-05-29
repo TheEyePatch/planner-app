@@ -4,8 +4,6 @@
         <ul>
             <li><%= task.title%></li>
             <li><%= task.description%></li>
-            <li><%= task.category_id%></li>
-            <li><%= task.deadline%></li>
         </ul>
         <%= link_to 'Show Task', category_task_path(@category, task)%>
         <%= link_to 'Delete Task', category_task_path(@category, task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.title}?"}%>

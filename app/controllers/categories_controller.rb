@@ -1,11 +1,6 @@
 class CategoriesController < ApplicationController
     def index
-        @categories = Category.all
-        @categories.each do |category|
-            category.tasks.each do |task|
-                @task = task
-            end
-        end
+        @categories = Category.order(:category_name).page(params[:page]).without_count
     end
     def new
         @category = Category.new
@@ -22,7 +17,7 @@ class CategoriesController < ApplicationController
         end
     end
     def show
-        @category =Category.find(params[:id])
+        @category = Category.find(params[:id])
     end
     def edit 
         @category = Category.find(params[:id])
