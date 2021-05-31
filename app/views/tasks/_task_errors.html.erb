@@ -1,0 +1,6 @@
+    <%msg.each do |message|%>
+        <div class = "text-left my-2 bg-red-400 text-red-800 p-2 shadow transition duration-300 ease-in-out flex items-stretch justify-between">
+            <p><%= message%></p>
+            <p class ="text-right mx-5 self-center"><%= link_to 'x', new_category_task_path, class: "text-red-800"%></p>
+        </div>
+    <%end%>
