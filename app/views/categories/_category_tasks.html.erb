@@ -17,6 +17,9 @@
     <%category.tasks.each do |task|%>
         <div class ="bg-white rounded-md p-2 shadow my-2 flex justify-between items-center">
             <p class = "w-40 truncate"><%= task.title%></p>
+            <% if task.deadline == Date.today%>
+                <span class ="bg-red-400 rounded text-xs text-white ring ring-red-700 ring-offset-2 p-1">Urgent</span>
+            <% end %>
             <div>
                 <%= link_to edit_category_task_path(category,task) do%>
                     <%= fa_icon "pen"%>
@@ -24,13 +27,8 @@
                 <%= link_to category_task_path(category, task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.title}"} do%>
                     <%= fa_icon "trash-alt"%>
                 <%end%>
-            </div>
-                    
-            <% if task.deadline == Date.today%>
-                <span class ="bg-red-400 rounded text-xs text-white ring ring-red-700 ring-offset-2 p-1">Urgent</span>
-            <% end %>
-                        
+            </div>                      
         </div>
     <%end%>
-    <%= button_to 'New Task', new_category_task_path(category), method: :get, class: "bg-green-400 py-2 px-4 rounded-lg text-gray-100 cursor-pointer hover:bg-white hover:text-green-400 w-full"%>
+    <%= button_to 'New Task', new_category_task_path(category), method: :get, class: "bg-green-400 py-2 px-4 rounded-lg text-gray-100 cursor-pointer transition duration-300 hover:bg-white hover:text-green-400 w-full"%>
 </div>

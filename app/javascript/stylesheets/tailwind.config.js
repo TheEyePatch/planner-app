@@ -12,7 +12,19 @@ module.exports = {
     },
     extend:{
       animation:{
-        bounce: 'bounce 2.5s infinite'
+        bounce: 'bounce 2.5s infinite',
+        wiggle: 'wiggle 1s infinite',
+      },
+      height: {
+        '95v': '95vh',
+        '45rem' : '45rem'
+      },
+      keyframes: {
+
+        wiggle: {
+          '0%, 100%': { transform: 'translateX(-2px)' },
+          '50%': { transform: 'translateX(2px)' },
+        }
       }
     }
   },
