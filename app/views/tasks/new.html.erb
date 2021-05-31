@@ -1,4 +1,9 @@
 <section class ="flex flex-col items-center py-10">
+<%flash.each do |type, msg|%>
+    <div class = "absolute top-0">
+        <%= render "task_errors", msg: msg%>
+    </div>
+<%end %>
     <h1 class = "text-6xl text-blue-800 tracking-widest my-2"><%= @category.category_name%></h1>
     <%= form_with scope: :task, model: [@category, @task], local: true, class:"bg-blue-200 shadow-lg p-5 rounded-lg" do |f|%>
         <%= render "form", f: f%>

@@ -4,7 +4,11 @@
         <h2 class= "text-3xl text-blue-800"><%= @task.title %></h2>
         <div class = "border-b-2 border-white">Deadline: <%= @task.deadline%></div>
         <div class = "my-3 p-2 bg-white rounded-lg"><%= @task.description %></div>
-        <%= button_to 'Edit Task', edit_category_task_path(@category, @task), method: :get, class: "p-2 rounded-lg shadow-md 
-        bg-green-400 text-white cursor-pointer hover:bg-white hover:text-green-400"%>
+        <div class = "flex justify-around">
+            <%= button_to 'Edit Task', edit_category_task_path(@category, @task), method: :get, class: "p-2 rounded-lg shadow-md 
+            bg-green-400 text-white cursor-pointer hover:bg-white hover:text-green-400"%>
+            <%= button_to 'Back to Tasks', category_tasks_path(@category), method: :get, class: "p-2 rounded-lg shadow-md 
+            bg-red-400 text-white cursor-pointer hover:bg-white hover:text-red-400"%>
+        </div>
     </div>
 </section>
