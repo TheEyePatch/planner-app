@@ -2,7 +2,9 @@ require "test_helper"
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
     setup do
+        @user = users(:kaneki)
         @category = categories(:one)
+        sign_in @user
     end
     test 'should go to new category form template and able to create new category' do
         get new_category_path

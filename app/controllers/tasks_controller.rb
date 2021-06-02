@@ -38,7 +38,7 @@ class TasksController < ApplicationController
     end
     private 
     def get_category
-        @category =Category.find(params[:category_id])
+        @category =current_user.categories.find(params[:category_id])
     end
     def task_params
         params.require(:task).permit(:title, :description, :deadline, :category_id)

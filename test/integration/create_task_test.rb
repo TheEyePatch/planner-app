@@ -1,8 +1,10 @@
 require "test_helper"
 class CreateTaskTest <  ActionDispatch::IntegrationTest
     setup do
+        @user = users(:kaneki)
         @category = categories(:one)
         @task = tasks(:one)
+        sign_in @user
     end
 
     test 'should go to new task form template and able to create  a new tasks' do
