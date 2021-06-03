@@ -27,9 +27,9 @@
           <h1 class = "font-big-shoulders text-blue-700 text-5xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter">REmindMe!</h1>
           <ul class ="relative right-5 flex items-center space-x-7 text-white font-rubik text-xl">
             <% if user_signed_in?%>
-            <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Home', root_path%></li>
-            <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Categories', categories_path%></li>
             <li class ="transition duration-300 hover:text-blue-500"><%= button_to 'New Category', new_category_path, method: :get, class:"bg-indigo-400 p-4 rounded-xl shadow-md text-white cursor-pointer transform transition duration-500 ease-in-out hover:scale-110 hover:text-indigo-400 hover:bg-white"%></li>
+            <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Home', root_path%></li>
+            <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Dashboard', categories_path%></li>
             <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete%></li>
             <%else%>
             <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Sign in', new_user_session_path%></li>
@@ -40,8 +40,6 @@
         </nav>
       </header>
       <section class="main transform translate-y-24">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
         <%= yield %>
       </section>
     </main>
