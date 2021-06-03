@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
             redirect_to categories_path
 
         else
-            redirect_to new_category_path, notice: @category.errors.full_messages
+            redirect_to new_category_path, alert: @category.errors.full_messages
         end
     end
     def show
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
             redirect_to categories_path
 
         else
-            redirect_to edit_category_path, notice: @category.errors.full_messages
+            redirect_to edit_category_path, alert: @category.errors.full_messages
         end
     end
 

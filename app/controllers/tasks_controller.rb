@@ -13,7 +13,7 @@ class TasksController < ApplicationController
         @task.save
         redirect_to categories_path(@category)
         else 
-            redirect_to new_category_task_path(@category), notice: @task.errors.full_messages
+            redirect_to new_category_task_path(@category), alert: @task.errors.full_messages
         end
     end
     def show
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
             @task.save
             redirect_to category_tasks_path(@category, @task)
         else
-            redirect_to edit_category_task_path(@category, @task), notice: @task.errors.full_messages
+            redirect_to edit_category_task_path(@category, @task), alert: @task.errors.full_messages
         end
     end
     def destroy
