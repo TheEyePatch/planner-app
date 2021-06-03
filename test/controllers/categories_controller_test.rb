@@ -1,11 +1,10 @@
 require "test_helper"
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
   setup do
     @category = categories(:one)
+    @user = users(:kaneki)
+    sign_in @user
   end
 
   test 'should get all categories' do

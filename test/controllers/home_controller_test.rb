@@ -1,9 +1,10 @@
 require "test_helper"
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @user = users(:kaneki)
+    sign_in @user
+  end
 
   test "should get index template tasks" do
     get root_path

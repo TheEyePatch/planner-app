@@ -1,12 +1,11 @@
 require "test_helper"
 require "securerandom"
 class TasksControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
   setup do
+    @user = users(:kaneki)
     @category = categories(:one)
     @task = tasks(:one)
+    sign_in @user
   end
 
   test 'should get all tasks' do

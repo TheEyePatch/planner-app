@@ -1,0 +1,30 @@
+<div class="flex flex-col items-center">
+  <p class="alert bg-red-400 text-red-800"><%= alert %></p>
+</div>
+<div class ="p-10 flex items-center justify-between">
+  <%= image_tag 'Post.gif', class: "h-45rem w-auto rounded-full bg-blue-300 p-5 mx-5"%>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white shadow-md p-7 rounded-md text-xl mx-5"}) do |f| %>
+    <h2 class = "text-3xl tracking-wider text-blue-800">Log in</h2>
+    <div class="field my-2">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border border-black rounded p-2" %>
+    </div>
+
+    <div class="field my-2">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "border border-black rounded p-2" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions my-2 text-base">
+      <%= f.submit "Log in", class: "my-1 p-2 bg-green-400 text-white rounded-md cursor-pointer transform transition duration-300 ease-in-out hover:scale-110" %><br>
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+</div>

@@ -4,11 +4,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-
-one: 
-  id: 1ce72baa-2683-4549-a1a8-3eb13bd1b95c
-  category_name: Sports
-  user: kaneki
-#
-two: {}
+kaneki: 
+  email: 'kaneki@email.com'
+# #
+# two: {}
 # column: value
