@@ -1,9 +1,12 @@
 <div class="flex flex-col items-center">
   <p class="alert bg-red-400 text-red-800"><%= alert %></p>
 </div>
-<div class ="p-10 flex items-center justify-between">
-  <%= image_tag 'Post.gif', class: "h-45rem w-auto rounded-full bg-blue-300 p-5 mx-5"%>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white shadow-md p-7 rounded-md text-xl mx-5"}) do |f| %>
+<div class ="p-5 flex items-center justify-between">
+  <figure>
+  <%= image_tag 'mobile-encryption.gif', class: "h-45rem w-auto rounded-full mx-5"%>
+  <h1 class = "font-big-shoulders text-blue-700 text-8xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter text-center"><i class="fas fa-calendar-check"></i> REmindMe!</h1>
+  </figure>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white shadow-md p-7 rounded-md text-xl mr-10"}) do |f| %>
     <h2 class = "text-3xl tracking-wider text-blue-800">Log in</h2>
     <div class="field my-2">
       <%= f.label :email %><br />
