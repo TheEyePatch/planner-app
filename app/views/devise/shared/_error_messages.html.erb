@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
+  <div id="error_explanation" class= 'fixed -top-24'>
+    <h2 class= "alert bg-red-400 text-red-800 p-3 shadow transition duration-300 ease-in-out flex items-stretch justify-between">
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
@@ -8,7 +8,7 @@
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class= "alert mt-2 bg-red-400 text-red-800 p-3 shadow transition duration-300 ease-in-out flex items-stretch justify-between"><%= message %></li>
       <% end %>
     </ul>
   </div>
