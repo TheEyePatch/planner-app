@@ -1,12 +1,17 @@
-<div class="flex flex-col items-center">
-  <p class="alert bg-red-400 text-red-800"><%= alert %></p>
+<div class = "alert fixed top-0 flex w-full justify-center items-center">
+<%flash.each do |type, msg|%>
+    <div class = "alert bg-red-400 text-red-800 p-3 shadow transition duration-300 ease-in-out flex items-stretch justify-between">
+      <p><%= msg%></p>
+    </div>
+<%end%>
 </div>
+
 <div class ="p-5 flex items-center justify-between">
-  <figure>
-  <%= image_tag 'mobile-encryption.gif', class: "h-45rem w-auto rounded-full mx-5"%>
+  <figure class= "ml-10">
   <h1 class = "font-big-shoulders text-blue-700 text-8xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter text-center"><i class="fas fa-calendar-check"></i> REmindMe!</h1>
+  <%= image_tag 'mobile-encryption-animate.svg', class: "h-45rem w-auto ml-14"%>
   </figure>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white shadow-md p-7 rounded-md text-xl mr-10"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white shadow-md p-7 rounded-md text-xl mr-28"}) do |f| %>
     <h2 class = "text-3xl tracking-wider text-blue-800">Log in</h2>
     <div class="field my-2">
       <%= f.label :email %><br />
@@ -26,8 +31,13 @@
     <% end %>
 
     <div class="actions my-2 text-base">
-      <%= f.submit "Log in", class: "my-1 p-2 bg-green-400 text-white rounded-md cursor-pointer transform transition duration-300 ease-in-out hover:scale-110" %><br>
-      <%= render "devise/shared/links" %>
+      <%= f.submit "Log in", class: "my-1 p-2 px-4 bg-green-400 text-white rounded-md cursor-pointer transform transition duration-300 ease-in-out hover:scale-110" %><br>
+      <%= link_to 'Sign-up', '#', id: 'sign-up-btn', class: "hover:text-blue-700 block mt-2", remote: true %>
     </div>
+  <% end %>
+</div>
+<div id = "sign-up-form" class= "fixed -top-24 h-screen w-screen flex items-center justify-center hidden">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "bg-white p-10 text-xl rounded-lg"}) do |f| %>
+    <%= render "devise/registrations/new", f: f%>
   <% end %>
 </div>

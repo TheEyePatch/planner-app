@@ -11,7 +11,7 @@ class TasksController < ApplicationController
         @task = @category.tasks.build(task_params)
         if @task.valid?
         @task.save
-        redirect_to categories_path(@category)
+        redirect_to category_tasks_path(@category), notice: "Successfully created new Task!"
         else 
             redirect_to new_category_task_path(@category), alert: @task.errors.full_messages
         end
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
         if @task.update(task_params)
             @task.save
-            redirect_to category_tasks_path(@category, @task)
+            redirect_to category_tasks_path(@category), notice: "Successfully edited Task!"
         else
             redirect_to edit_category_task_path(@category, @task), alert: @task.errors.full_messages
         end
@@ -42,6 +42,6 @@ class TasksController < ApplicationController
         @category =current_user.categories.find(params[:category_id])
     end
     def task_params
-        params.require(:task).permit(:title, :description, :deadline, :category_id)
+        params.require(:task).permit(:title, :description, :deadline, :category_id, :completed)
     end
 end

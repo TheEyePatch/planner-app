@@ -1,0 +1,28 @@
+  <h2 class = "text-blue-800 tracking-wider text-3xl">Sign up</h2>
+  <div class="field mt-5">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border border-black p-2 rounded-md"%>
+  </div>
+
+  <div class="field mt-5">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "border border-black p-2 rounded-md" %>
+  </div>
+
+  <div class="field mt-5">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "border border-black p-2 rounded-md" %>
+  </div>
+
+  <div class="actions mt-10">
+    <%= f.submit "Sign up", class: "cursor-pointer block w-full bg-green-400 text-white p-2 rounded-md transform transition duration-150 ease-out hover:bg-white hover:text-green-400 hover:scale-105" %>
+    <%- if controller_name != 'sessions' %>
+        <%= link_to "Log in", new_session_path(resource_name) %><br />
+    <%else%>
+        <%= link_to 'Log in' , '#', id: "login-btn", remote: true, class: "block text-center text-sm mt-5 tracking-wider hover:text-blue-700"%>
+    <% end %>
+    
+  </div>
