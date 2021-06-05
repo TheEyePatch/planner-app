@@ -12,5 +12,12 @@ textarea{
         border: none;
         -webkit-appearance: none;
     }
-    
+}
+.check-box[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    color: blue;
+}
+.check-box[type=checkbox]:checked + *{ 
+    color: blue;
 }

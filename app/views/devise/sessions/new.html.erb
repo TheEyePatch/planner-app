@@ -8,8 +8,8 @@
 
 <div class ="p-5 flex items-center justify-between">
   <figure class= "ml-10">
-  <%= image_tag 'mobile-encryption.gif', class: "h-45rem w-auto rounded-full mx-5"%>
   <h1 class = "font-big-shoulders text-blue-700 text-8xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter text-center"><i class="fas fa-calendar-check"></i> REmindMe!</h1>
+  <%= image_tag 'mobile-encryption-animate.svg', class: "h-45rem w-auto ml-14"%>
   </figure>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white shadow-md p-7 rounded-md text-xl mr-28"}) do |f| %>
     <h2 class = "text-3xl tracking-wider text-blue-800">Log in</h2>
@@ -32,7 +32,7 @@
 
     <div class="actions my-2 text-base">
       <%= f.submit "Log in", class: "my-1 p-2 px-4 bg-green-400 text-white rounded-md cursor-pointer transform transition duration-300 ease-in-out hover:scale-110" %><br>
-      <%= link_to 'Sign-up', '#', id: 'sign-up-btn', class: "hover:text-blue-700", remote: true %>
+      <%= link_to 'Sign-up', '#', id: 'sign-up-btn', class: "hover:text-blue-700 block mt-2", remote: true %>
     </div>
   <% end %>
 </div>

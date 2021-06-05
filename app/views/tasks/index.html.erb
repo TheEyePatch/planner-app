@@ -1,3 +1,4 @@
+<%= render "task_errors"%>
 <section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center'>
     <h1 class ="p-5 bg-blue-400 mx-5 rounded-full text-4xl text-blue-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start shadow-md">
         <%= @category.category_name%>
@@ -15,12 +16,20 @@
     <% @tasks.each do |task|%>
         <div class = "bg-blue-50 shadow-md p-3 rounded-lg w-80 h-40 transform transition duration-200 ease-in-out hover:-translate-y-1">
             <h3 class = "border-b-2 border-blue-900 text-3xl flex items-center justify-between">
-            <p><%= task.title%></p>
-            <% if task.deadline == Date.today%>
-                <div class ="bg-red-400 rounded text-xs text-white ring ring-red-700 ring-offset-2 p-1">Urgent</div>
+            <p>
+            <%= task.title%></p>
+            <% if task.deadline == Date.today && !task.completed %>
+                <div class="relative inline-flex rounded-full h-3 w-3 bg-red-400">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                </div>
+            <% elsif task.completed%>
+                <div class = "bg-green-400 rounded text-xs text-green-800 ring ring-green-400 ring-offset-2 p-1">Completed</div>
             <%end%>
             </h3>
-            <p class = "my-2 truncate"><%= task.description%></p>
+            <p class = "my-2 truncate">
+                <%= task.description%>
+            </p>
+
             <div class="flex justify-end">
                 <%= link_to category_task_path(@category, task), class:"mx-2 text-blue-400" do%>
                     <%= fa_icon "eye"%>
