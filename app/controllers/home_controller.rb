@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     def get_all_urgent_tasks
         @categories.each do |category|
             category.tasks.each do |task|
-                if task.deadline == Date.today
+                if task.deadline == Date.today && !task.completed
                     @urgent_tasks.push(task)
                 end
             end
