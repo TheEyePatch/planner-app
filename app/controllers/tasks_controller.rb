@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     def destroy
         @task = @category.tasks.find(params[:id])
         @task.destroy
-        redirect_to categories_path
+        redirect_to categories_path, notice: "Successfully deleted Task!"
     end
     private 
     def get_category
