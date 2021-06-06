@@ -1,6 +1,6 @@
 <%= render "task_errors"%>
 <h1 class ="p-5 text-4xl text-blue-800 tracking-tighter w-9/12 justify-self-start border-b border-blue-800 mx-auto">
-    <%= @category.category_name%>
+    <%= @category.name%>
     <%= link_to edit_category_path(@category), class:"text-xl mx-5" do%>
         <%= fa_icon "align-justify"%>
     <%end%>

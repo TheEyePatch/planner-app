@@ -7,7 +7,7 @@
 
 one: 
   id: 1ce72baa-2683-4549-a1a8-3eb13bd1b95c
-  category_name: Sports
+  name: Sports
   user: kaneki
 #
 two: {}
