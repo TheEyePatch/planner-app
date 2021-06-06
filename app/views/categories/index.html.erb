@@ -20,20 +20,8 @@
     <%end%>
   </div>
   <% @categories.each do |category|%>
-    <% if !category.tasks.any?{|task| task.deadline == Date.today} && category.tasks.any?{|task| !task.completed} || category.tasks.count == 0%>
+    <% if !category.tasks.any?{|task| task.deadline == Date.today && !task.completed}%>
       <%= render "category_tasks", category: category%>
-    
     <%end%>
   <%end%>
 </section>
-
-<% if @categories.any?{|category| category.tasks.all?{|task| task.completed} && category.tasks.count >= 1}%>
-  <section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center'>
-    <h1 id = "urgent" class ="p-5 bg-green-400 mx-5 rounded-full text-4xl text-green-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start shadow-md">Completed</h1>
-    <% @categories.each do |category|%>
-      <% if category.tasks.all?{|task| task.completed} && category.tasks.count >= 1%>
-        <%= render "categories/category_tasks", category: category %>
-      <%end%>
-    <%end%>
-  </section>
-<%end%>
