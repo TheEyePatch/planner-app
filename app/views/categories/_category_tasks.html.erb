@@ -1,8 +1,4 @@
-<%if category.tasks.count > 5%>
-<div class = 'row-span-2 bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
-<% else %>
 <div class = 'bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
-<%end%>
     <h2 class ="text-3xl text-blue-900 tracking-tighter border-b-2 border-blue-50 w-full flex items-center justify-between">
         <div class = "w-60 truncate hover:text-blue-400">
             <%= link_to category.category_name, category_tasks_path(category)%>
@@ -18,7 +14,7 @@
         <div><%= category.tasks.where(completed: true).count%> Completed</div>
     </h3>
 
-    <%category.tasks.each do |task|%>
+    <%category.tasks.slice(0,3).each do |task|%>
         <div class ="bg-white rounded-md p-2 shadow my-2 flex justify-between items-center">
             <p class = "w-40 truncate"><%= task.title%></p>
             <% if task.deadline == Date.today && !task.completed %>

@@ -1,7 +1,10 @@
-<section class ="flex flex-col items-center py-10">
-<%= render "task_errors"%>
-    <h1 class = "text-6xl text-blue-800 tracking-widest my-2"><%= @category.category_name%></h1>
-    <%= form_with scope: :task, model: [@category, @task], method: :put, local: true, class:"bg-blue-200 shadow-lg p-5 rounded-lg" do |f|%>
-        <%= render "form", f: f%>
-    <% end %>
+<section class ="flex items-center py-10 justify-around">
+    <%= render "task_errors"%>
+    <%= image_tag 'new-entries-animate.svg', class: "h-35rem"%>
+    <div class = "mr-24">
+        <h1 class = "text-6xl text-blue-800 tracking-widest my-2"><%= @category.category_name%></h1>
+        <%= form_with scope: :task, model: [@category, @task], method: :put, local: true, class:"bg-blue-200 shadow-lg p-5 rounded-lg" do |f|%>
+            <%= render "form", f: f%>
+        <% end %>
+    </div>
 </section>
