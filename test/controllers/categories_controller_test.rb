@@ -20,7 +20,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should post new category' do
     assert_difference 'Category.count', 1 do
-      post categories_path, params: {category: {category_name: 'Fitness'}}
+      post categories_path, params: {category: {name: 'Fitness'}}
       assert_redirected_to categories_path
     end
   end
@@ -37,7 +37,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update selected category' do
-    put category_path(@category), params: {category: {category_name: 'Sports'}}
+    put category_path(@category), params: {category: {name: 'Sports'}}
 
     assert_response :redirect
   end

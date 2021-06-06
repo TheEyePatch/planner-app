@@ -11,7 +11,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
         assert_response :success
 
         assert_difference 'Category.count', 1 do
-            post categories_path, params: {category: {category_name: 'Fitness'}}
+            post categories_path, params: {category: {name: 'Fitness'}}
             assert_response :redirect
         end
 
@@ -23,7 +23,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
         get edit_category_path(@category)
         assert_response :success
        
-        put category_path(@category), params: {category: {category_name: 'Fitness'}}
+        put category_path(@category), params: {category: {name: 'Fitness'}}
         assert_response :redirect
         
         follow_redirect!

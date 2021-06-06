@@ -1,7 +1,7 @@
 <div class = 'bg-blue-200 rounded-md p-5 w-80 shadow transform transition duration-200 ease-in-out hover:-translate-y-1'>
     <h2 class ="text-3xl text-blue-900 tracking-tighter border-b-2 border-blue-50 w-full flex items-center justify-between">
         <div class = "w-60 truncate hover:text-blue-400">
-            <%= link_to category.category_name, category_tasks_path(category)%>
+            <%= link_to category.name, category_tasks_path(category)%>
         </div>
         <div class = "text-lg">
             <%= link_to edit_category_path(category) do%>

@@ -11,13 +11,13 @@ class CategoryTest < ActiveSupport::TestCase
     assert_not category.save, 'Category saved without category_name'
   end
   test 'category should save' do
-    category = @user.categories.build(category_name: "Health & Fitness")
+    category = @user.categories.build(name: "Health & Fitness")
     assert category.save, 'Category did not save'
   end
 
   test'category should update' do
     category = @category
-    category.category_name = "Health Fitness"
+    category.name = "Health Fitness"
     category.user_id = @user.id
     assert category.save, 'Category did not save'
   end
