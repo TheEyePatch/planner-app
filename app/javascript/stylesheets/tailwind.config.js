@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     fontFamily: {
       'rubik':['Rubik', 'sans-serif'],
-      'big-shoulders':['Big Shoulders Display', 'cursive']
+      'big-shoulders':['Big Shoulders Display', 'cursive'],
+      'roboto': ['Roboto', 'sans-serif']
     },
     extend:{
       animation:{
@@ -17,7 +18,8 @@ module.exports = {
       },
       height: {
         '95v': '95vh',
-        '45rem' : '45rem'
+        '45rem' : '45rem',
+        '35rem': '35rem'
       },
       keyframes: {
 
