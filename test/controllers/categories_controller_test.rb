@@ -21,7 +21,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test 'should post new category' do
     assert_difference 'Category.count', 1 do
       post categories_path, params: {category: {category_name: 'Fitness'}}
-      assert_response :redirect
+      assert_redirected_to categories_path
     end
   end
 

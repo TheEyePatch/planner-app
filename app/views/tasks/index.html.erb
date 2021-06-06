@@ -1,12 +1,11 @@
 <%= render "task_errors"%>
-<section class = 'grid md:grid-cols-5 gap-5 justify-center justify-items-center items-center'>
-    <h1 class ="p-5 bg-blue-400 mx-5 rounded-full text-4xl text-blue-800 tracking-tighter col-start-1 col-span-5 w-11/12 justify-self-start shadow-md">
-        <%= @category.category_name%>
-        <%= link_to edit_category_path(@category), class:"text-xl mx-5" do%>
-                <%= fa_icon "align-justify"%>
-            <%end%>
-    </h1>
-        
+<h1 class ="p-5 text-4xl text-blue-800 tracking-tighter w-9/12 justify-self-start border-b border-blue-800 mx-auto">
+    <%= @category.category_name%>
+    <%= link_to edit_category_path(@category), class:"text-xl mx-5" do%>
+        <%= fa_icon "align-justify"%>
+    <%end%>
+</h1>
+<section class = 'grid md:grid-cols-4 gap-5 justify-center justify-items-center items-center mt-5 w-9/12 mx-auto'>        
     <%= link_to new_category_task_path(@category) do%>
          <div class ="border-2 border-blue-800 w-80 h-40 flex justify-center items-center border-dashed text-blue-700 text-2xl rounded-md hover:border-transparent hover:shadow-md transform transition duration-500 ease-in-out hover:scale-110">
             <%= fa_icon "plus"%>
