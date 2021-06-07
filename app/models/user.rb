@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :categories, dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
