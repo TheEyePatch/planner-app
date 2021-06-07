@@ -8,7 +8,7 @@
 
 <div class ="p-5 flex items-center justify-between">
   <figure class= "ml-10">
-    <h1 class = "font-big-shoulders text-blue-700 text-8xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter text-center"><i class="fas fa-calendar-check"></i> REmindMe!</h1>
+    <h1 class = "font-lobster text-blue-700 text-8xl left-5 cursor-pointer hover:text-blue-800 tracking-tighter text-center"><i class="fas fa-calendar-check"></i> remindme!</h1>
     <%= image_tag 'mobile-encryption-animate.svg', class: "h-45rem w-auto ml-14"%>
   </figure>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "bg-white text-gray-700 shadow-md p-7 rounded-md text-xl w-96 mr-28"}) do |f| %>
@@ -37,7 +37,7 @@
   <% end %>
 </div>
 <div id = "sign-up-form" class= "fixed -top-24 h-screen w-screen flex items-center justify-center hidden">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "bg-white p-10 text-gray-700 text-xl rounded-lg w-96"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "bg-white p-10 text-gray-700 text-xl rounded-lg w-30rem"}) do |f| %>
     <%= render "devise/registrations/new", f: f%>
   <% end %>
 </div>
