@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'rubik':['Rubik', 'sans-serif'],
-      'big-shoulders':['Big Shoulders Display', 'cursive'],
+      'lobster':['Lobster', 'cursive'],
       'roboto': ['Roboto', 'sans-serif']
     },
     extend:{
@@ -21,8 +21,10 @@ module.exports = {
         '45rem' : '45rem',
         '35rem': '35rem'
       },
+      width:{
+        '30rem': '30rem'
+      },
       keyframes: {
-
         wiggle: {
           '0%, 100%': { transform: 'translateX(-2px)' },
           '50%': { transform: 'translateX(2px)' },
