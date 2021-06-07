@@ -8,6 +8,8 @@ class UserTest < ActiveSupport::TestCase
   test 'should create new user'do
   user = User.new
   user.email = 'email@email.com'
+  user.first_name = 'kaneki'
+  user.last_name = 'ken'
   user.password = '1234567'
 
 

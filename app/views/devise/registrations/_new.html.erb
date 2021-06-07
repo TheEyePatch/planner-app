@@ -5,6 +5,16 @@
   </div>
 
   <div class="field mt-5">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, placeholder: 'First Name..', class: "border border-black p-2 rounded-md w-full"%>
+  </div>
+
+  <div class="field mt-5">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, placeholder: 'Last Name..', class: "border border-black p-2 rounded-md w-full"%>
+  </div>
+
+  <div class="field mt-5">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
