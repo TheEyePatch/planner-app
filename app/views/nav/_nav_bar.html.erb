@@ -1,0 +1,21 @@
+<header class ="bg-indigo-300 w-screen p-2 flex items-center fixed top-0 z-10 shadow"><!--bg-gradient-to-r from-blue-100 to-blue-500-->
+  <nav class="flex justify-between w-screen py-2">
+    <h1 class = "font-lobster text-blue-700 text-5xl ml-10 cursor-pointer hover:text-blue-800 tracking-tighter"><i class="fas fa-calendar-check"></i> <%= link_to 'remindme!', root_path%></h1>
+    <ul class ="relative right-5 flex items-center space-x-7 text-white font-rubik text-xl">
+    	<li class ="transition duration-300 hover:text-blue-500"><%= button_to 'New Category', new_category_path, method: :get, class:"bg-indigo-400 p-4 rounded-xl shadow-md text-white cursor-pointer transform transition duration-500 ease-in-out hover:scale-110 hover:text-indigo-400 hover:bg-white"%></li>
+      <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Home', root_path%></li>
+      <li class ="transition duration-300 hover:text-blue-500"><%= link_to 'Dashboard', categories_path%></li>
+      <li class ="profile-container text-center">
+      	<div class = "cursor-pointer hover:text-blue-500">
+          <i class="fas fa-user-alt"></i><i class="fas fa-chevron-down"></i>
+        </div>
+        <div class = "sub-menu-profile hidden bg-indigo-300 p-2 text-left w-32 transform -translate-x-1/2">
+          <ul>
+            <li  class = "transition duration-300 p-2 hover:bg-indigo-500 tracking-wider"><%= link_to 'Edit', edit_user_registration_path%></li>
+            <li class= "transition duration-300 p-2 hover:bg-indigo-500 tracking-wider"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete%></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
