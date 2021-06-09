@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     before_action :authenticate_user!
     before_action :get_category 
     def index
-        @tasks = @category.tasks.all
+        @tasks = @category.tasks.order(:deadline)
     end
     def new
         @task = @category.tasks.build
@@ -25,7 +25,10 @@ class TasksController < ApplicationController
     def update
         @task = @category.tasks.find(params[:id])
 
-        if @task.update(task_params)
+        if @task.update(task_params) && @task.completed
+            @task.save
+            redirect_to category_tasks_path(@category), notice: "Task completed!"
+        elsif @task.update(task_params)
             @task.save
             redirect_to category_tasks_path(@category), notice: "Successfully edited Task!"
         else

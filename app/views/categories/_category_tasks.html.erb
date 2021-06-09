@@ -14,7 +14,8 @@
         <div><%= category.tasks.where(completed: true).count%> Completed</div>
     </h3>
 
-    <%category.tasks.slice(0,3).each do |task|%>
+    <%tasks =  category.tasks.order(:deadline)%>
+    <%tasks.slice(0,3).each do |task|%>
         <div class ="bg-white rounded-md p-2 shadow my-2 flex justify-between items-center">
             <p class = "w-40 truncate"><%= task.title%></p>
             <% if task.deadline == Date.today && !task.completed %>
