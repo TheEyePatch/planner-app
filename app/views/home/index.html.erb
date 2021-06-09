@@ -5,17 +5,46 @@
     <figcaption><a href="https://storyset.com/work", class = "w-full text-blue-800 font-big-shoulders">Illustration by Freepik Storyset</a></figcaption>
 </figure>
 
+
     <div class = "bg-blue-100 p-8 rounded-lg shadow-lg animate-wiggle">
         <h1 class = "text-4xl text-blue-800 mb-5">Hi <%= current_user.first_name%>! you have <%= @urgent_tasks.count%> tasks for today!</h1>
-        <% @urgent_tasks.each do |task|%>
-            <p class = "my-2 p-3 bg-white shadow-md rounded-md w-full flex justify-between text-xl tracking-wider">
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-400">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                </span>
-                <span><%= task.title%></span>
-                <span><%= task.deadline.strftime('%b'',''%d'',''%Y')%></span>
-            </p>
-    
+        
+        <%if @urgent_tasks.length < 10  %>
+        <div>
+        <%else%>
+        <div class = "h-35rem overflow-y-scroll">
         <%end%>
+
+        <%if @urgent_tasks.any?{|task| task.deadline && !task.completed}%>
+            <table class = "my-2 p-4 bg-white shadow-md rounded-md w-full text-xl tracking-wider text-left cursor-default">
+                <thead>
+                    <tr class = "text-2xl">
+                        <th class= "p-5">Task</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                    </tr>
+                <thead>
+                <tbody>
+            <% @urgent_tasks.each do |task|%>
+                <tr>
+                    <td class = "p-4">
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-400">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        </span>
+                        <%= task.title%>
+                    </td>
+                    <td>
+                        <%= task.category.name%>
+                    </td>
+                    <td>
+                        <%= task.deadline.strftime('%b' ' %d'',''%Y')%>
+                    </td>
+                </tr>
+            <%end%>
+                </tbody>
+            </table>
+        </div>
+        <%end%>
+
     </div>
 </section>
