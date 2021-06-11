@@ -1,10 +1,10 @@
 <%= render "categories/error_message"%>
+
 <section class = "flex justify-around items-center p-5">
 <figure class= "flex flex-col items-center mt-10">
     <%= image_tag "cohort-analysis-animate.svg", class: 'h-45rem'%>
     <figcaption><a href="https://storyset.com/work", class = "w-full text-blue-800 font-big-shoulders">Illustration by Freepik Storyset</a></figcaption>
 </figure>
-
 
     <div class = "bg-blue-100 p-8 rounded-lg shadow-lg animate-wiggle">
         <h1 class = "text-4xl text-blue-800 mb-5">Hi <%= current_user.first_name%>! you have <%= @urgent_tasks.count%> tasks for today!</h1>
@@ -45,6 +45,6 @@
             </table>
         </div>
         <%end%>
-
     </div>
 </section>
+<%= render partial: "overdue_modal", locals: {overdue_tasks: @overdue_tasks, current_user: current_user}%>

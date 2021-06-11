@@ -9,8 +9,11 @@
             <%end%>
         </div>
     </h2>
-    <h3 class ="flex justify-between text-xl text-indigo-400 my-2">
+    <h3 class ="flex justify-between text-lg text-indigo-400 my-2">
+    <% overdue_task = []%>
+    <% category.tasks.each{|task| overdue_task.push(task) if @overdue_tasks.include?(task)}%>
         <div><%= category.tasks.count%> Task/s</div>
+        <div><%= overdue_task.count%> Overdue</div>
         <div><%= category.tasks.where(completed: true).count%> Completed</div>
     </h3>
 
@@ -23,7 +26,9 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 </div>
             <% elsif task.completed%>
-                <div class = "bg-green-400 rounded text-xs text-green-800 ring ring-green-400 ring-offset-2 p-1">Completed</div>
+                <div class = "rounded text-xs text-green-800 ring ring-green-400 ring-offset-2">Completed</div>
+            <% elsif @overdue_tasks.include?(task)%>
+                <div class = "rounded text-xs text-red-800 ring ring-red-400 ring-offset-2">Overdue</div>
             <%end%>              
         </div>
     <%end%>

@@ -5,3 +5,12 @@
 td{
     border-spacing: 0 2rem;
 }
+
+#overdue-container{
+    background-color: rgba(0, 0, 0, 0.671);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
