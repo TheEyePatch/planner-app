@@ -11,6 +11,7 @@ import "channels"
 import "stylesheets/application"
 require('script/log_in')
 require('script/errors')
+require('script/home.js')
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
