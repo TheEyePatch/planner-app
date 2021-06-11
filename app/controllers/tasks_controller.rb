@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
     before_action :authenticate_user!
     before_action :get_category 
+    before_action :get_overdue_tasks
+    
     def index
         @tasks = @category.tasks.order(:deadline)
     end
@@ -41,6 +43,17 @@ class TasksController < ApplicationController
         redirect_to categories_path, notice: "Successfully deleted Task!"
     end
     private 
+
+    def get_overdue_tasks
+        @overdue_tasks = []
+        @category.tasks.each do |task|
+            unless task.deadline.nil?
+                if task.deadline.past? && !task.completed
+                    @overdue_tasks.push(task)
+                end
+            end
+        end
+    end
     def get_category
         @category =current_user.categories.find(params[:category_id])
     end

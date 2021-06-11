@@ -2,6 +2,8 @@ class CategoriesController < ApplicationController
     before_action :authenticate_user!
     def index
         @categories = current_user.categories.all
+        @overdue_tasks = []
+        get_overdue_tasks
     end
     def new
         @category = current_user.categories.build
@@ -41,6 +43,20 @@ class CategoriesController < ApplicationController
         redirect_to categories_path
     end
     private
+    def get_overdue_tasks
+        @categories.each do |category|
+            iterate_category_tasks(category)
+        end
+    end
+    def iterate_category_tasks(category)
+        category.tasks.each do |task|
+            unless task.deadline.nil?
+                if task.deadline.past? && !task.completed
+                    @overdue_tasks.push(task)
+                end
+            end
+        end
+    end
 
     def category_params
         params.require(:category).permit(:name)
