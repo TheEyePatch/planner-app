@@ -21,23 +21,30 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 </div>
             <% elsif task.completed%>
-                <div class = "bg-green-400 rounded text-xs text-green-800 ring ring-green-400 ring-offset-2 p-1">Completed</div>
+                <div class = "rounded text-xs text-green-800 ring ring-green-400 ring-offset-2">Completed</div>
+            <% elsif @overdue_tasks.include?(task)%>
+                <div class = "rounded text-xs text-red-800 ring ring-red-400 ring-offset-2">Overdue</div>
             <%end%>
             </h3>
             <p class = "my-2 truncate">
                 <%= task.description%>
             </p>
 
-            <div class="flex justify-end">
-                <%= link_to category_task_path(@category, task), class:"mx-2 text-blue-400" do%>
-                    <%= fa_icon "eye"%>
-                <%end%>
-                <%= link_to edit_category_task_path(@category, task), class:"mx-2 text-green-400" do%>
-                    <%= fa_icon "pen"%>
-                <%end%>
-                <%= link_to category_task_path(@category, task), class:"mx-2 text-red-400", method: :delete, data: {confirm: "Are you sure you want to delete #{task.title}?"} do%>
-                    <%= fa_icon "trash"%>
-                <%end%>
+            <div>
+                <div>
+                    Deadline: <%= task&.deadline&.strftime('%b' ' %d'','' %Y')%>
+                </div>
+                <div class="flex justify-end" >
+                    <%= link_to category_task_path(@category, task), class:"mx-2 text-blue-400" do%>
+                        <%= fa_icon "eye"%>
+                    <%end%>
+                    <%= link_to edit_category_task_path(@category, task), class:"mx-2 text-green-400" do%>
+                        <%= fa_icon "pen"%>
+                    <%end%>
+                    <%= link_to category_task_path(@category, task), class:"mx-2 text-red-400", method: :delete, data: {confirm: "Are you sure you want to delete #{task.title}?"} do%>
+                        <%= fa_icon "trash"%>
+                    <%end%>
+                </div>
             </div>
         </div>
     <%end%>

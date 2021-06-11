@@ -1,12 +1,12 @@
 <%flash.each do |type, msg|%>
     <%if type == 'alert'%>
         <%msg.each do |message|%>
-            <div class = "<%= type%> absolute z-30 top-0 bg-red-300 text-red-800 p-2 text-lg shadow transition duration-300 ease-in-out flex items-stretch justify-between">
+            <div class = "<%= type%> absolute z-30 top-24 bg-red-300 text-red-800 p-2 text-lg shadow transition duration-300 ease-in-out flex items-stretch justify-between">
                 <p><%= message%></p>
             </div>
         <%end%>
     <%elsif type == 'notice'%>
-        <div class = "<%= type%> fixed z-30 top-0 bg-green-300 text-green-800 p-2 text-lg shadow transition duration-300 ease-in-out w-full flex justify-center">
+        <div class = "<%= type%> fixed z-30 top-24 bg-green-300 text-green-800 p-2 text-lg shadow transition duration-300 ease-in-out w-full flex justify-center">
             <p><%= msg%></p>
         </div>
     <%end%>
