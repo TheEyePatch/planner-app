@@ -1,0 +1,10 @@
+<div id = "overdue-container" class = "flex items-center justify-center hidden">
+    <div class ='w-96 bg-white h-auto rounded-md relative'>
+        <div id ="close-pop-up" class ="text-right mr-3 mt-2 cursor-pointer text-xl text-gray-400"><%= fa_icon "times"%></div>
+        <%= image_tag "webinar-animate.svg", class: "m-1"%>
+        <p id ="modal-overdue-notice" class = 'p-5 text-xl text-gray-700' data-overdue-tasks = "<%= j overdue_tasks.count%>" >
+            Hi <strong class = "text-blue-800"><%= current_user.first_name%></strong>, hope you're doing okay! You missed some tasks yesterday. 
+            You currently have <strong class = "text-red-500"><%= overdue_tasks.count%></strong> overdue tasks as of today. Let's complete it today, it's not too late!
+        </p>
+    </div>
+</div>
